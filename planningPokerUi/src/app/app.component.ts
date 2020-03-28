@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'planningPokerUi';
+  public static apiUrl = 'http://localhost:5001/api';
+  public static title = 'planningPokerUi';
 }
