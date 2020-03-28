@@ -9,6 +9,8 @@ namespace planningpoker.Models
             Database.Migrate();
         }
 
-        public DbSet<Project> ProjectItems { get; set; }
+        public DbSet<Project> Projects { get; set; }
+        
+        public DbSet<ProjectPermission> ProjectPermissions { get; set; }
     }
 }

@@ -6,10 +6,11 @@ namespace planningpoker.Models
         READ_WRITE,
         READ,
     }
-    
+
     public class ProjectPermission
     {
-        public string HolderId;
-        public PermissionType PermissionType;
+        public string Id { get; set; }
+        public string HolderId { get; set; }
+        public PermissionType PermissionType { get; set; }
     }
 }
