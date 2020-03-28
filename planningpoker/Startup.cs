@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Server.IISIntegration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,6 +28,21 @@ namespace planningpoker
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder => 
+                        builder.SetIsOriginAllowed(_ => true)
+                            .AllowAnyMethod()
+                            .AllowAnyHeader()
+                    // "CorsPolicy",
+                    // builder => builder.AllowAnyOrigin()
+                        // .AllowAnyMethod()
+                        // .AllowAnyHeader()
+                        // .AllowCredentials()
+                    );
+            });
+            services.AddAuthentication(IISDefaults.AuthenticationScheme);
+            
             services.AddScoped<ProjectService, ProjectService>();
             services.AddScoped<UserService, UserService>();
             services.AddDbContext<ProjectContext>(options => options.UseSqlite(Configuration.GetConnectionString("DB")));
@@ -45,6 +61,12 @@ namespace planningpoker
 
             app.UseRouting();
 
+            app.UseCors(builder => 
+                builder.SetIsOriginAllowed(_ => true)
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                );
+            
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
