@@ -28,6 +28,7 @@ namespace planningpoker
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<ProjectService, ProjectService>();
+            services.AddScoped<UserService, UserService>();
             services.AddDbContext<ProjectContext>(options => options.UseSqlite(Configuration.GetConnectionString("DB")));
             services.AddControllers();
         }

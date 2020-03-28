@@ -12,5 +12,7 @@ namespace planningpoker.Models
         public DbSet<Project> Projects { get; set; }
         
         public DbSet<ProjectPermission> ProjectPermissions { get; set; }
+        
+        public DbSet<User> Users { get; set; }
     }
 }
