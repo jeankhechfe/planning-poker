@@ -28,19 +28,7 @@ namespace planningpoker
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors(options =>
-            {
-                options.AddDefaultPolicy(builder => 
-                        builder.SetIsOriginAllowed(_ => true)
-                            .AllowAnyMethod()
-                            .AllowAnyHeader()
-                    // "CorsPolicy",
-                    // builder => builder.AllowAnyOrigin()
-                        // .AllowAnyMethod()
-                        // .AllowAnyHeader()
-                        // .AllowCredentials()
-                    );
-            });
+            services.AddCors();
             services.AddAuthentication(IISDefaults.AuthenticationScheme);
             
             services.AddScoped<ProjectService, ProjectService>();
@@ -61,12 +49,12 @@ namespace planningpoker
 
             app.UseRouting();
 
-            app.UseCors(builder => 
-                builder.SetIsOriginAllowed(_ => true)
-                    .AllowAnyMethod()
-                    .AllowAnyHeader()
+            app.UseCors(options => 
+                options.WithOrigins("http://localhost:4200")
+                .AllowAnyMethod()
+                .AllowAnyHeader()
                 );
-            
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
