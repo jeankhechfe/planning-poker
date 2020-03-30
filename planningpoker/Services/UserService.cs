@@ -18,7 +18,7 @@ namespace planningpoker.Models
         {
             var user = new User();
             user.Id = Guid.NewGuid().ToString();
-            user.Login = userRegistrationTo.Login;
+            user.Login = userRegistrationTo._login;
 
             _projectContext.Add(user);
             _projectContext.SaveChanges();
