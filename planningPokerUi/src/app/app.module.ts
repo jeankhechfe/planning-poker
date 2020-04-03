@@ -10,6 +10,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {UserService} from './auth/user.service';
 import {AuthService} from './auth/auth.service';
 import {HttpClient, HttpClientModule, HttpHandler} from '@angular/common/http';
+import {User} from './_model/user'
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {HttpClient, HttpClientModule, HttpHandler} from '@angular/common/http';
     UserService,
     AuthService,
     HttpClient,
+    User,
   ],
   bootstrap: [AppComponent]
 })
