@@ -14,7 +14,5 @@ jobs:
       working-directory: ./planningPokerUi
     
     steps:
-    - uses: mayur-rawte/github-angular-actions@latest
     - name: Angular Github Actions
-      working-directory: ${{env.working-directory}}
-      
+      uses: mayur-rawte/github-angular-actions@latest
