@@ -14,12 +14,12 @@ namespace planningpoker.Models
 
         public Project CreateProject(Project project)
         {
-            project.Id = Guid.NewGuid().ToString();
+            project.ProjectId = Guid.NewGuid().ToString();
 
-            ProjectPermission permission = new ProjectPermission();
-            permission.Id = Guid.NewGuid().ToString();
+            UserProjectPermission permission = new UserProjectPermission();
+            permission.UserProjectPermitionId = Guid.NewGuid().ToString();
             permission.PermissionType = PermissionType.OWNER;
-            permission.HolderId = "user";//TODO 
+            //permission.HolderId = "user";//TODO 
 
             _projectContext.Add(project);
             _projectContext.Add(permission);
@@ -34,7 +34,7 @@ namespace planningpoker.Models
         
         public Project Get(string id)
         {
-            return GetAll().Find(p => p.Id.Equals(id));
+            return GetAll().Find(p => p.ProjectId.Equals(id));
         }
         
         public Project Update(Project existing, Project update)
@@ -47,7 +47,7 @@ namespace planningpoker.Models
         
         public Project Remove(string id)
         {
-            return GetAll().Find(p => p.Id.Equals(id));
+            return GetAll().Find(p => p.ProjectId.Equals(id));
         }
         
         //TODO
