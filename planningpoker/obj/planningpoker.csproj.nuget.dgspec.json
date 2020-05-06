@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/adrian/put/tsdPro/planningpoker/planningpoker.csproj": {}
+    "/home/user/put/tsdPro/planningpoker/planningpoker.csproj": {}
   },
   "projects": {
-    "/Users/adrian/put/tsdPro/planningpoker/planningpoker.csproj": {
+    "/home/user/put/tsdPro/planningpoker/planningpoker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/adrian/put/tsdPro/planningpoker/planningpoker.csproj",
+        "projectUniqueName": "/home/user/put/tsdPro/planningpoker/planningpoker.csproj",
         "projectName": "planningpoker",
-        "projectPath": "/Users/adrian/put/tsdPro/planningpoker/planningpoker.csproj",
-        "packagesPath": "/Users/adrian/.nuget/packages/",
-        "outputPath": "/Users/adrian/put/tsdPro/planningpoker/obj/",
+        "projectPath": "/home/user/put/tsdPro/planningpoker/planningpoker.csproj",
+        "packagesPath": "/home/user/.nuget/packages/",
+        "outputPath": "/home/user/put/tsdPro/planningpoker/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/adrian/.nuget/NuGet/NuGet.Config"
+          "/home/user/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -39,6 +39,10 @@
             "EntityFramework": {
               "target": "Package",
               "version": "[6.4.0, )"
+            },
+            "Microsoft.AspNetCore.Cors": {
+              "target": "Package",
+              "version": "[2.2.0, )"
             },
             "Microsoft.Bcl.AsyncInterfaces": {
               "target": "Package",
@@ -79,6 +83,10 @@
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[2.1.0, )"
+            },
+            "sqlite": {
+              "target": "Package",
+              "version": "[3.13.0, )"
             }
           },
           "imports": [
@@ -99,7 +107,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.102/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.201/RuntimeIdentifierGraph.json"
         }
       }
     }
