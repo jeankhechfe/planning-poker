@@ -1,9 +1,11 @@
 name: PokerApp API [Master]
  
 on:
+  push:
+    branches: [ master ]
   pull_request:
-    branches: [master]
-
+    branches: [ master ]
+    
 jobs:
   build-and-deploy:
     name: Build and Test
