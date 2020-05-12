@@ -12,5 +12,6 @@ namespace planningpoker.Models
         public int EpicId { get; set; }
         public Epic Epic { get; set; }
         public List<User> Users { get; set; }
+        public List<Comment> Comments { get; set; }
     }
 }
