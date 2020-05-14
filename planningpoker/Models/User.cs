@@ -1,15 +1,17 @@
 using planningpoker.TOs;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace planningpoker.Models
 {
     public class User
     {
+        // [Key]
         public string UserId { get; set; }
         public string Username { get; set; }
         //public string Password { get; set; }
-        public List<Task> Tasks { get; set; }
-        public List<Task> ProjectsPermissions { get; set; }
+        public ICollection<Task> Tasks { get; set; }
+        // public ICollection<Task> ProjectsPermissions { get; set; }
 
         public UserTO ToTo()
         {

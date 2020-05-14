@@ -17,7 +17,7 @@ namespace planningpoker.Models
             project.ProjectId = Guid.NewGuid().ToString();
 
             UserProjectPermission permission = new UserProjectPermission();
-            permission.UserProjectPermitionId = Guid.NewGuid().ToString();
+            permission.UserProjectPermissionId = Guid.NewGuid().ToString();
             permission.PermissionType = PermissionType.OWNER;
             //permission.HolderId = "user";//TODO 
 

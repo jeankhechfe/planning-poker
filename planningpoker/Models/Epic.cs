@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace planningpoker.Models
 {
@@ -7,9 +8,10 @@ namespace planningpoker.Models
         public string EpicId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        
         public int ProjectId { get; set; }
         public Project Project { get; set; }
-        public List<Task> Tasks { get; set; }
-
+        
+        public ICollection<Task> Tasks { get; set; }
     }
 }
