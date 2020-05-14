@@ -8,5 +8,6 @@ namespace planningpoker.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public List<Epic> Epics { get; set; }
+        public ICollection<UserProjectPermission> UserProjectPermissions { get; set; }
     }
 }

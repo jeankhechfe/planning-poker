@@ -11,10 +11,11 @@ namespace planningpoker.Models
 
     public class UserProjectPermission
     {
-        [Key]
         public string UserProjectPermissionId { get; set; }
         public string UserId { get; set; }
+        public User User { get; set; }
         public string ProjectId { get; set; }
+        public Project Project { get; set; }
         public PermissionType PermissionType { get; set; }
     }
 }

@@ -4,7 +4,7 @@ using planningpoker.Models;
 
 namespace planningpoker.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/projects")]
     [ApiController]
     public class ProjectController : Controller
     {

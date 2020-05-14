@@ -10,7 +10,7 @@ namespace planningpoker.Models
         public string Username { get; set; }
         //public string Password { get; set; }
         public ICollection<Task> Tasks { get; set; }
-        // public ICollection<Task> ProjectsPermissions { get; set; }
+        public ICollection<UserProjectPermission> UserProjectPermissions { get; set; }
 
         public UserTO ToTo()
         {
