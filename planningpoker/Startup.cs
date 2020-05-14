@@ -28,8 +28,8 @@ namespace planningpoker
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors();
-            services.AddAuthentication(IISDefaults.AuthenticationScheme);
+            // services.AddCors();
+            // services.AddAuthentication(IISDefaults.AuthenticationScheme);
             
             services.AddScoped<ProjectService, ProjectService>();
             services.AddScoped<UserService, UserService>();
@@ -45,7 +45,7 @@ namespace planningpoker
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
 
             app.UseRouting();
 
