@@ -20,7 +20,7 @@ namespace planningpoker.Models
     //TODO unique pair of user-project in DB
     public class UserProjectPermission
     {
-        public string UserProjectPermissionId { get; set; }
+        public string Id { get; set; }
         public string UserId { get; set; }
         public User User { get; set; }
         public string ProjectId { get; set; }

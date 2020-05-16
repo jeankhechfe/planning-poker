@@ -20,10 +20,10 @@ namespace planningpoker.Models
 
         public Project CreateProject(Project project)
         {
-            project.ProjectId = Guid.NewGuid().ToString();
+            project.Id = Guid.NewGuid().ToString();
 
             UserProjectPermission permission = new UserProjectPermission();
-            permission.UserProjectPermissionId = Guid.NewGuid().ToString();
+            permission.Id = Guid.NewGuid().ToString();
             permission.PermissionType = PermissionType.OWNER;
             //permission.HolderId = "user";//TODO 
 
@@ -40,7 +40,7 @@ namespace planningpoker.Models
         
         public Project Get(string id)
         {
-            var project = GetAll().Find(p => p.ProjectId.Equals(id));
+            var project = GetAll().Find(p => p.Id.Equals(id));
             if(project == null)
                 throw new NotFoundException("No project found of id " + id);
             return project;
@@ -57,7 +57,7 @@ namespace planningpoker.Models
         
         public Project Remove(string id)
         {
-            return GetAll().Find(p => p.ProjectId.Equals(id));
+            return GetAll().Find(p => p.Id.Equals(id));
         }
 
         public List<UserProjectPermissionTO> GetProjectsPermissionsForUser(string userId)
@@ -115,7 +115,7 @@ namespace planningpoker.Models
                     UserProjectPermission projectPermission = new UserProjectPermission()
                     {
 
-                        UserProjectPermissionId = Guid.NewGuid().ToString(),
+                        Id = Guid.NewGuid().ToString(),
                         PermissionType = userProjectPermission.PermissionType,
                         ProjectId = userProjectPermission.ProjectId,
                         Project = project,

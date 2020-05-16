@@ -12,50 +12,16 @@ namespace planningpoker.Models
         public DbSet<Project> Projects { get; set; }
         
         public DbSet<UserProjectPermission> ProjectPermissions { get; set; }
+        public DbSet<UserTaskEstimation> TaskEstimations { get; set; }
         
         public DbSet<User> Users { get; set; }
 
-        public DbSet<Epic> Epics { get; set; }
-
         public DbSet<Task> Tasks { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
         protected virtual void OnModelCreating(ModelBuilder modelBuilder)
         {
             
-            //region user < --permission-- > project
-            modelBuilder.Entity<UserProjectPermission>()
-                .HasOne(upp => upp.Project)
-                .WithMany(p => p.UserProjectPermissions)
-                .HasForeignKey(upp => upp.ProjectId);
-            
-            modelBuilder.Entity<UserProjectPermission>()
-                .HasOne(upp => upp.User)
-                .WithMany(u => u.UserProjectPermissions)
-                .HasForeignKey(upp => upp.UserId);
-            //endregion
-            
-            // // configures one-to-many relationship between Project & Epic
-            // modelBuilder.Entity<Epic>()
-            //     .HasRequired<Project>(e => e.Project)
-            //     .WithMany(p => p.Epics)
-            //     .HasForeignKey<int>(e => e.ProjectId);
-            //
-            // // configures one-to-many relationship between Epic & Task
-            // modelBuilder.Entity<Task>()
-            //     .HasRequired<Epic>(t => t.Epic)
-            //     .WithMany(e => e.Tasks)
-            //     .HasForeignKey<int>(t => t.EpicId);
-            //
-            // // configures many-to-many relationship between User & Task
-            // modelBuilder.Entity<Task>()
-            //     .HasMany<User>(t => t.Users)
-            //     .WithMany(u => u.Tasks)
-            //     .Map(ut =>
-            //     {
-            //         ut.MapLeftKey("UserRefId");
-            //         ut.MapRightKey("TaskRefId");
-            //         ut.ToTable("UserTask");
-            //     });
         }
     }
 }

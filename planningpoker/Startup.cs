@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using planningpoker.Models;
+using planningpoker.Services;
 
 namespace planningpoker
 {
@@ -38,6 +39,7 @@ namespace planningpoker
             });
             
             services.AddScoped<ProjectService, ProjectService>();
+            services.AddScoped<TaskService, TaskService>();
             services.AddScoped<UserService, UserService>();
             services.AddDbContext<ProjectContext>(options => options.UseSqlite(Configuration.GetConnectionString("DB")));
             services.AddControllers();

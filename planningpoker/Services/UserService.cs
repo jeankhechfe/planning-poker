@@ -29,8 +29,8 @@ namespace planningpoker.Models
         public UserTO Register(UserRegistrationTO userRegistrationTo)
         {
             var user = new User();
-            user.UserId = Guid.NewGuid().ToString();
-            user.Username = userRegistrationTo._login;
+            user.Id = Guid.NewGuid().ToString();
+            user.Username = userRegistrationTo.login;
 
             _projectContext.Add(user);
             _projectContext.SaveChanges();
@@ -46,7 +46,7 @@ namespace planningpoker.Models
 
             //TODO actual password hash verification
 
-            return new LoginTO(single.UserId);
+            return new LoginTO(single.Id);
         }
 
         public string HashPassword(string password)

@@ -30,7 +30,7 @@ namespace planningpoker.Controllers
             {
                 return _userService.Login(userLoginTo);
             }
-            catch (InvalidOperationException e)
+            catch (InvalidOperationException)
             {
                 return BadRequest();
             }
