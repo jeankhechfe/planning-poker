@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -30,6 +31,11 @@ namespace planningpoker
         {
             // services.AddCors();
             // services.AddAuthentication(IISDefaults.AuthenticationScheme);
+            //
+            services.AddMvc().AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+            });
             
             services.AddScoped<ProjectService, ProjectService>();
             services.AddScoped<UserService, UserService>();

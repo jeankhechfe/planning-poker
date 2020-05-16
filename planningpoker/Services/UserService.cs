@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using planningpoker.Controllers.Exceptions;
 using planningpoker.TOs;
 
 namespace planningpoker.Models
@@ -16,6 +17,15 @@ namespace planningpoker.Models
             _projectContext = projectContext;
         }
 
+        public User GetUser(string userId)
+        {
+            User user = _projectContext.Users.Find(userId);
+            if (user == null)
+                throw new NotFoundException("User of id " + userId + " does not exist");
+            
+            return user;
+        }
+        
         public UserTO Register(UserRegistrationTO userRegistrationTo)
         {
             var user = new User();

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using planningpoker.Models;
+using planningpoker.TOs;
 
 namespace planningpoker.Controllers
 {
@@ -40,7 +41,7 @@ namespace planningpoker.Controllers
         }
         
         [HttpPut("{id}")] 
-        public ActionResult<Project> Update(string id, Project project) 
+        public ActionResult<Project> Update(string id, ProjectCreatingTO project) 
         {    
             var item = _projectService.Get(id);
             
