@@ -1,0 +1,572 @@
+{
+	"info": {
+		"_postman_id": "87648bf5-d63b-4890-9f3a-297e4061e66f",
+		"name": "TsdPro",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "projectPermissions",
+			"item": [
+				{
+					"name": "GetUserPermissions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/permissions/user/79aa8418-8444-430b-b8c9-6bd37c0bd81a",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"permissions",
+								"user",
+								"79aa8418-8444-430b-b8c9-6bd37c0bd81a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProjectsPermissions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/permissions/project/6056b2fc-f315-452e-b467-bb46e3b90f49",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"permissions",
+								"project",
+								"6056b2fc-f315-452e-b467-bb46e3b90f49"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateProjectPermissions",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"projectId\":\"2cd0620c-9c37-4b3c-b3e1-45f0c32df11c\",\n\t\"userId\":\"79aa8418-8444-430b-b8c9-6bd37c0bd81a\",\n\t\"permissionType\":\"OWNER\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/permissions",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"permissions"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "tasks",
+			"item": [
+				{
+					"name": "GetTasksUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/tasks/user/e146ab63-dd53-4a89-baac-c7e69480ce23",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"user",
+								"e146ab63-dd53-4a89-baac-c7e69480ce23"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetTasksProject",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/tasks?projectId=",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"tasks"
+							],
+							"query": [
+								{
+									"key": "projectId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetTask",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/tasks/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddTask",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/tasks/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "comments",
+			"item": [
+				{
+					"name": "GetTasksComments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/tasks//comments",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateTasksComments",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"text\" : \"lame task\",\n\t\"taskId\" : \"a9b3bff8-d5ab-4325-8f83-ef7f10ff1ba5\",\n\t\"userId\" : \"450080c4-9ce3-4ced-aa63-9b1a7fd35d00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/tasks/a9b3bff8-d5ab-4325-8f83-ef7f10ff1ba5/comments",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"a9b3bff8-d5ab-4325-8f83-ef7f10ff1ba5",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteComment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"text\" : \"lame task\",\n\t\"taskId\" : \"a9b3bff8-d5ab-4325-8f83-ef7f10ff1ba5\",\n\t\"userId\" : \"450080c4-9ce3-4ced-aa63-9b1a7fd35d00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/tasks/a9b3bff8-d5ab-4325-8f83-ef7f10ff1ba5/comments",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"a9b3bff8-d5ab-4325-8f83-ef7f10ff1ba5",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "projects",
+			"item": [
+				{
+					"name": "GetProjects",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/projects",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProject",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/projects/d2afe323-3d92-45af-8e68-d92a50a98782",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"projects",
+								"d2afe323-3d92-45af-8e68-d92a50a98782"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostProject",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"newProject\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/projects",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateProject",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"TsdProject\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/projects/c9ba82b6-090f-41e9-9d85-b7ed8b65fdfe",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"projects",
+								"c9ba82b6-090f-41e9-9d85-b7ed8b65fdfe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteProject",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "estimations",
+			"item": [
+				{
+					"name": "GetEstimations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/tasks/7fc03ee1-282b-4f9b-95f1-487daf1a5fb2/estimations",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"7fc03ee1-282b-4f9b-95f1-487daf1a5fb2",
+								"estimations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateTasksComments",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"text\" : \"lame task\",\n\t\"taskId\" : \"a9b3bff8-d5ab-4325-8f83-ef7f10ff1ba5\",\n\t\"userId\" : \"450080c4-9ce3-4ced-aa63-9b1a7fd35d00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/tasks/a9b3bff8-d5ab-4325-8f83-ef7f10ff1ba5/estimations",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"a9b3bff8-d5ab-4325-8f83-ef7f10ff1ba5",
+								"estimations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteEstimation",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"text\" : \"lame task\",\n\t\"taskId\" : \"a9b3bff8-d5ab-4325-8f83-ef7f10ff1ba5\",\n\t\"userId\" : \"450080c4-9ce3-4ced-aa63-9b1a7fd35d00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/tasks/a9b3bff8-d5ab-4325-8f83-ef7f10ff1ba5/estimations/asd",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"a9b3bff8-d5ab-4325-8f83-ef7f10ff1ba5",
+								"estimations",
+								"asd"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"login\":\"jess\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/register",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"login\":\"jess\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "88538601-0894-4da5-bf7d-d7dcb3d80e42",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "f5f19416-4289-45df-ab0c-3211193ae04f",
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Project creating\", function(){",
+					"   pm.response.to.have.status(200); ",
+					"});"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "9cee6add-34be-463b-a60d-402f78b0b65f",
+			"key": "url",
+			"value": "http://localhost:5001",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
