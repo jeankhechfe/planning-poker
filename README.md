@@ -14,7 +14,6 @@ The project uses:
     
 ### Testing // how to run tests
 ![PokerApp API [Master]](https://github.com/xplolel/tsdPro/workflows/PokerApp%20API%20%5BMaster%5D/badge.svg)
-![Angular](https://github.com/xplolel/tsdPro/workflows/Angular/badge.svg)
 
 ### Deploying // how to deploy the application to production 
 
