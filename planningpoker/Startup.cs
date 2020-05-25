@@ -64,9 +64,10 @@ namespace planningpoker
             app.UseRouting();
 
             app.UseCors(options => 
-                options.WithOrigins("http://localhost:4200")
+                options.WithOrigins("http://localhost:8080")
                 .AllowAnyMethod()
                 .AllowAnyHeader()
+                .AllowCredentials()
                 );
 
             app.UseAuthorization();
