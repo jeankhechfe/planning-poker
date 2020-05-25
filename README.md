@@ -6,11 +6,12 @@ It's an application for so called estimation game - "Planning poker". It's a way
 
 ### Tools (what are the tools needed to develop the application)
 The project uses:
-- .Net Core
-- Vue.js
+- .Net Core (this repo)
+- Vue.js    (other repo)
 
 ### Configuring (how to configure the project on a developer's machine (database, webserver, etc.))
-
+- Execute reinitDb.sh to re-init db migrations.
+- dotnet run // to run the API
     
 ### Testing // how to run tests
 ![PokerApp API [Master]](https://github.com/xplolel/tsdPro/workflows/PokerApp%20API%20%5BMaster%5D/badge.svg)
