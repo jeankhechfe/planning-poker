@@ -55,9 +55,13 @@ namespace planningpoker.Models
             return entity;
         }
         
-        public Project Remove(string id)
+        public void Remove(string id)
         {
-            return GetAll().Find(p => p.Id.Equals(id));
+            Project removed = GetAll().Find(p => p.Id.Equals(id));
+            if (removed == null)
+                throw new NotFoundException("No project found of id " + id);
+            _projectContext.Projects.Remove(removed);
+            _projectContext.SaveChanges();
         }
 
         public List<UserProjectPermissionTO> GetProjectsPermissionsForUser(string userId)
