@@ -35,9 +35,18 @@ namespace planningpoker.Models
             return project;
         }
 
-        public List<Project> GetAll()
+        List<Project> GetAll()
         {
             return new List<Project>(_projectContext.Projects);
+        }
+        
+        public List<Project> GetAllUserHasPermissionTo(string userId)
+        {
+            var userProjectPermissions = _projectContext.ProjectPermissions
+                .Where(pp => pp.UserId.Equals(userId));
+            return _projectContext.Projects
+                .Where(p => userProjectPermissions.First(upp => upp.ProjectId == p.Id) != null)
+                .ToList();
         }
         
         public Project Get(string id)

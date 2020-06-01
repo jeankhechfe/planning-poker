@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using planningpoker.Models;
 using planningpoker.TOs;
@@ -17,11 +18,14 @@ namespace planningpoker.Controllers
         }
 
         [HttpGet] 
-        public ActionResult<List<Project>> GetAll() 
+        public ActionResult<List<ProjectTO>> GetAll([FromHeader] string authorization) 
         {     
-            return _projectService.GetAll(); 
-        } 
- 
+            string userId = authorization.Replace("Bearer ", "");
+            return _projectService.GetAllUserHasPermissionTo(userId)
+                .Select(p => p.toTO())
+                .ToList(); 
+        }
+
         [HttpGet("{id}")] 
         public ActionResult<Project> GetById(string id) 
         {    
