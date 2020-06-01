@@ -2,6 +2,7 @@ using System;
 using Microsoft.AspNetCore.Mvc;
 using planningpoker.Models;
 using planningpoker.TOs;
+using System.Collections.Generic;
 
 namespace planningpoker.Controllers
 {
@@ -13,6 +14,13 @@ namespace planningpoker.Controllers
         public UserController(UserService userService)
         {
             _userService = userService;
+        }
+
+        [Route("api/users")]
+        [HttpGet]
+        public ActionResult<List<User>> GetAll()
+        {
+            return _userService.GetAll();
         }
 
         [Route("api/register")]
