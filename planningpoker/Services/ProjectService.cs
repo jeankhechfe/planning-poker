@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using planningpoker.Controllers.Exceptions;
 using planningpoker.TOs;
@@ -18,14 +19,15 @@ namespace planningpoker.Models
             _userService = userService;
         }
 
-        public Project CreateProject(Project project)
+        public Project CreateProject(Project project, string userId)
         {
             project.Id = Guid.NewGuid().ToString();
 
             UserProjectPermission permission = new UserProjectPermission();
             permission.Id = Guid.NewGuid().ToString();
             permission.PermissionType = PermissionType.OWNER;
-            //permission.HolderId = "user";//TODO 
+            permission.UserId = userId;
+            permission.ProjectId = project.Id;
 
             _projectContext.Add(project);
             _projectContext.Add(permission);

@@ -34,10 +34,12 @@ namespace planningpoker.Controllers
         }
         
         [HttpPost] 
-        public ActionResult<Project> Create(Project project) 
-        {    
-            _projectService.CreateProject(project);
-            return project;
+        public ActionResult<ProjectTO> Create(Project project, [FromHeader] string authorization)
+        {
+            string userId = authorization.Replace("Bearer ", "");
+            
+            _projectService.CreateProject(project, userId);
+            return project.toTO();
         }
         
         [HttpPut("{id}")] 
