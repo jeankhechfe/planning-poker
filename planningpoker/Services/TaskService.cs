@@ -48,6 +48,8 @@ namespace planningpoker.Services
 
         public List<Task> GetTasksForProject(string projectId)
         {
+            _projectService.Get(projectId);
+            
             return _projectContext.Tasks
                 .Include(t => t.Project)
                 .Include(t => t.Assignee)
@@ -56,6 +58,8 @@ namespace planningpoker.Services
         
         public List<Task> GetTasksForUser(string userId)
         {
+            _userService.GetUser(userId);
+            
             return _projectContext.Tasks
                 .Include(t => t.Project)
                 .Include(t => t.Assignee)
@@ -106,6 +110,8 @@ namespace planningpoker.Services
 
         public void DeleteTask(string taskId)
         {
+            GetCommentsForTask(taskId).ForEach(c=>_projectContext.Comments.Remove(c));
+            GetTaskEstimationsForTask(taskId).ForEach(c=>_projectContext.TaskEstimations.Remove(c));
             _projectContext.Tasks.Remove(GetTask(taskId));
         }
 
