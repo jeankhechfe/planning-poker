@@ -17,6 +17,12 @@ namespace planningpoker.Models
             _projectContext = projectContext;
         }
 
+        public List<User> GetAll()
+        {
+            return new List<User>(_projectContext.Users);
+        }
+
+
         public User GetUser(string userId)
         {
             User user = _projectContext.Users.Find(userId);
