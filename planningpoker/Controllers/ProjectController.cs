@@ -57,7 +57,14 @@ namespace planningpoker.Controllers
             else
             {
                 string userId = authorization.Replace("Bearer ", "");
-                return _projectService.Update(item, project, userId); 
+                try
+                {
+                    return _projectService.Update(item, project, userId);
+                } 
+                catch (AccessForbiddenException)
+                {
+                    return BadRequest();
+                }
             }
         }
         
