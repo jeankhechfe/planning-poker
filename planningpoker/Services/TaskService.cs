@@ -77,13 +77,13 @@ namespace planningpoker.Services
             if(taskCreateTo.Estimation != 0)
                 task.Estimation = taskCreateTo.Estimation;
 
-            if (!task.AssigneeId.Equals(taskCreateTo.AssignedUserId))
+            if (taskCreateTo.AssignedUserId != null && !task.AssigneeId.Equals(taskCreateTo.AssignedUserId))
             {
                 task.Assignee = _userService.GetUser(taskCreateTo.AssignedUserId);
                 task.AssigneeId = taskCreateTo.AssignedUserId;
             }
             
-            if (!task.ProjectId.Equals(taskCreateTo.ProjectID))
+            if (taskCreateTo.AssignedUserId != null && !task.ProjectId.Equals(taskCreateTo.ProjectID))
             {
                 task.Project = _projectService.Get(taskCreateTo.ProjectID);
                 task.ProjectId = taskCreateTo.ProjectID;
