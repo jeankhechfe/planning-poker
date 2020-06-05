@@ -87,7 +87,7 @@ namespace planningpoker.Controllers
             }
         }
         
-        [HttpPut]
+        [HttpPut("{taskId}")]
         public ActionResult<TaskTO> UpdateTask(string taskId, TaskCreateTO taskCreateTo)
         {
             try
