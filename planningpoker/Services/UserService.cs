@@ -32,7 +32,7 @@ namespace planningpoker.Models
             return user;
         }
         
-        public UserTO Register(UserRegistrationTO userRegistrationTo)
+        public LoginTO Register(UserRegistrationTO userRegistrationTo)
         {
             var user = new User();
             user.Id = Guid.NewGuid().ToString();
@@ -41,7 +41,7 @@ namespace planningpoker.Models
             _projectContext.Add(user);
             _projectContext.SaveChanges();
 
-            return user.ToTo();
+            return new LoginTO(user.Id);
         }
 
         public LoginTO Login(UserLoginTO userLoginTo)
