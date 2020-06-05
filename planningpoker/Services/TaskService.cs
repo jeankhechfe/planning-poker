@@ -70,9 +70,9 @@ namespace planningpoker.Services
         {
             var task = GetTask(taskId);
 
-            if(StringUtils.isStringNotEmpty(task.Name))
+            if(StringUtils.isStringNotEmpty(taskCreateTo.Name))
                 task.Name = taskCreateTo.Name;
-            if(StringUtils.isStringNotEmpty(task.Description))
+            if(StringUtils.isStringNotEmpty(taskCreateTo.Description))
                 task.Description = taskCreateTo.Description;
             if(taskCreateTo.Estimation != 0)
                 task.Estimation = taskCreateTo.Estimation;
