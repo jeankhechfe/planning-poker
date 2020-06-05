@@ -25,7 +25,7 @@ namespace planningpoker.Controllers
 
         [Route("api/register")]
         [HttpPost]
-        public ActionResult<UserTO> Register(UserRegistrationTO userRegistrationTo)
+        public ActionResult<LoginTO> Register(UserRegistrationTO userRegistrationTo)
         {
             return _userService.Register(userRegistrationTo);
         }
