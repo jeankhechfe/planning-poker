@@ -104,7 +104,7 @@ namespace planningpoker.Controllers
             }
         }
         
-        [HttpDelete]
+        [HttpDelete("{taskId}")]
         public ActionResult DeleteTask(string taskId)
         {
             try
