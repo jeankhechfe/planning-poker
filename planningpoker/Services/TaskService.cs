@@ -113,6 +113,7 @@ namespace planningpoker.Services
             GetCommentsForTask(taskId).ForEach(c=>_projectContext.Comments.Remove(c));
             GetTaskEstimationsForTask(taskId).ForEach(c=>_projectContext.TaskEstimations.Remove(c));
             _projectContext.Tasks.Remove(GetTask(taskId));
+            _projectContext.SaveChanges();
         }
 
         public Comment AddComment(CommentCreateTO commentTo)
