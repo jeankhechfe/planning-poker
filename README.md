@@ -10,7 +10,7 @@ The project uses:
 - Vue.js    (other repo)
 
 ### Configuring (how to configure the project on a developer's machine (database, webserver, etc.))
-- Execute reinitDb.sh to re-init db migrations.
+- Execute reinitDb.sh to re-init db migrations, Or use seeds.sql to generate dummy data (password for all users is "asdf")
 - dotnet run // to run the API
     
 ### Testing // how to run tests
