@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
+using System.Text;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using planningpoker.Controllers.Exceptions;
 using planningpoker.TOs;
@@ -37,6 +38,7 @@ namespace planningpoker.Models
             var user = new User();
             user.Id = Guid.NewGuid().ToString();
             user.Username = userRegistrationTo.login;
+            user.PasswordHash = HashPassword(user.Id, userRegistrationTo.password);
 
             _projectContext.Add(user);
             _projectContext.SaveChanges();
@@ -50,19 +52,18 @@ namespace planningpoker.Models
             var projectContextUsers = new List<User>(_projectContext.Users);
             User single = projectContextUsers.First(user => user.Username == login);
 
-            //TODO actual password hash verification
-
+            var hashPassword = HashPassword(single.Id, userLoginTo.Password);
+            
+            if(hashPassword != single.PasswordHash)
+                throw new AccessForbiddenException();
+            
             return new LoginTO(single.Id);
         }
 
-        public string HashPassword(string password)
+        public string HashPassword(string uid, string password)
         {
             // generate a 128-bit salt using a secure PRNG
-            byte[] salt = new byte[128 / 8];
-            using (var rng = RandomNumberGenerator.Create())
-            {
-                rng.GetBytes(salt);
-            }
+            byte[] salt = Encoding.ASCII.GetBytes(uid);
 
             // derive a 256-bit subkey (use HMACSHA1 with 10,000 iterations)
             string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(

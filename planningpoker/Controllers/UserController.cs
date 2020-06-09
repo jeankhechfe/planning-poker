@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using planningpoker.Models;
 using planningpoker.TOs;
 using System.Collections.Generic;
+using planningpoker.Controllers.Exceptions;
 
 namespace planningpoker.Controllers
 {
@@ -37,6 +38,10 @@ namespace planningpoker.Controllers
             try
             {
                 return _userService.Login(userLoginTo);
+            }
+            catch (AccessForbiddenException)
+            {
+                return Unauthorized();
             }
             catch (InvalidOperationException)
             {
