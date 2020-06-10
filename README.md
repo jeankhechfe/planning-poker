@@ -4,19 +4,18 @@ made by: Adrian Wojtczak, Burak Can Koçak, Jean Khechfe, Krzysztof Bończyk
 ### Description
 It's an application for so called estimation game - "Planning poker". It's a way to agree on a estimation of a task, which allows to avoid the bias of earlier heard estimation.
 
-### Tools (what are the tools needed to develop the application)
+### Tools
 The project uses:
 - .Net Core (this repo)
 - Vue.js    (other repo)
 
-### Configuring (how to configure the project on a developer's machine (database, webserver, etc.))
+### Configuring 
 - Execute reinitDb.sh to re-init db migrations.
 - dotnet run // to run the API
     
-### Testing // how to run tests
+### Testing
+build check:
 ![PokerApp API [Master]](https://github.com/xplolel/tsdPro/workflows/PokerApp%20API%20%5BMaster%5D/badge.svg)
-
-### Deploying // how to deploy the application to production 
 
 
     
